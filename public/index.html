@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <meta charset="utf-8" />
+        <title> Online Tutorial MEAN stack </title>
+    </head>
+	
+    <body>
+        <div class = "container" ng-controller = "AppCtrl"> 
+            <h1> Query of series in the DB </h1>
+            </br>
+        
+            <table class='table'> 
+                <thead>     
+                    <h2> Search series in the database </h2>
+                    <tr>                    
+                            <th> DICOM TAG </th>
+                            <th> TAG VALUE </th>  
+                            <th> Query database </th>    
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><input class ="form-control" ng-model = "key1"></td>
+                        <td><input class ="form-control" ng-model = "value1"></td>
+                        <td><button class ="bin btn-primary" ng-click = "queryDB()"> SEARCH! </button> </td>
+                    </tr>
+                    <tr>
+                        <td><input class ="form-control" ng-model = "key2"></td>
+                        <td><input class ="form-control" ng-model = "value2"></td>
+                    </tr>
+                </tbody>
+               
+            </table>
+                
+        </br><h2> Results </h2>
+
+            <table class='table'> 
+                <thead>
+                    <tr>                
+                        <th> Path </th>
+                        <th> Modality </th>
+                        <th> Patient Sex </th>
+                    </tr>
+                    <tr>
+                        They were {{num}} results:
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat = "series in docs">
+                        <td> {{series._path}} </td>
+                        <td> {{series.Modality}} </td>
+                        <td> {{series.PatientSex}} </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--
+            <input ng-model = "TEST">
+            <br>
+            {{TEST}}     -->
+
+        </div>
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"> </script>
+        <script src = "controllers/controller.js"></script>
+    </body>
+</html>
+
+
+
